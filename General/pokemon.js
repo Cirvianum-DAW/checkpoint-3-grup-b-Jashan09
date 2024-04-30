@@ -15,13 +15,8 @@ async function getDescAbility(url) {
     return response.json();
 }
 
-let thisDescUrl = [];
-let counter = 0;
-
-
 
 function repteTercer(){
-
 
     let divSuperior = document.querySelector("body");
 
@@ -66,9 +61,6 @@ const perCercar = function()
 }
 
 function escriuElPoke(myPokemonObj){
-
-    thisDescUrl = [];
-    counter = 0;
 
     let myName = document.querySelector("#name");
     let myHeight = document.querySelector("#height");
