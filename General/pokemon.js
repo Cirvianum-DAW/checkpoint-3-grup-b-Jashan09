@@ -24,7 +24,7 @@ function repteTercer(){
     let nouButton = document.createElement("button");
     let nouDiv = document.createElement("div");
 
-    nouButton.textContent = "Fes-me click per cercar per id o per nom";
+    nouButton.textContent = "Fes-me click per cercar per id o per nom (després d'escriure al input)";
     nouDiv.style = "border: 1px solid #000;";
 
     nouInput.style = "border: 1px solid #000;";
@@ -38,15 +38,14 @@ function repteTercer(){
 const perCercar = function()
 {
 
-    let nouInput = document.querySelector("input");
+
+        let nouInput = document.querySelector("input");
 
     document
     .querySelector('button')
     .addEventListener('click', async function (event) {
     
         let id = nouInput.value;
-
-        console.log(id);
     
         const myPokemonObj = await request(id);
 
@@ -54,10 +53,18 @@ const perCercar = function()
 
         escriuElPoke(myPokemonObj); 
 
+        let testError = myPokemonObj;
+
         return myPokemonObj;
 
+        
       
+
+    
     });
+        
+  
+    
 }
 
 function escriuElPoke(myPokemonObj){
@@ -66,7 +73,7 @@ function escriuElPoke(myPokemonObj){
     let myHeight = document.querySelector("#height");
     let myWeight = document.querySelector("#weight");
 
-    let mySprite = document.querySelector("img"); //ES UN ELEMENT IMG
+    let mySprite = document.querySelector("img"); //ÉS UN ELEMENT IMG
 
     myName.textContent = myPokemonObj.name;
 
@@ -75,7 +82,7 @@ function escriuElPoke(myPokemonObj){
 
     mySprite.src = myPokemonObj.sprites.front_shiny
 
-    let myAbilitiesArray = document.querySelector("ul"); //ES UNA LLISTA
+    let myAbilitiesArray = document.querySelector("ul"); //ÉS UNA LLISTA
     
     //TRET D'INTERNET
     var lis = document.querySelectorAll('li');
@@ -112,7 +119,6 @@ function escriuElPoke(myPokemonObj){
 
 }
 
-
 main = async () => {
 
     const myPokemonObj = await ficaUnIdPelPokemon(3);
@@ -121,10 +127,7 @@ main = async () => {
     
     repteTercer();
 
-    perCercar();
-
-    
-
+    perCercar();    
 
 };
 
