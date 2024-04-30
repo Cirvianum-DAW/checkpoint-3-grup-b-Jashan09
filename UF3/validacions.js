@@ -1,7 +1,33 @@
 // A continuació et mostro algunes idees per poder començar a organitzar el teu codi.
 
+document
+  .querySelector('form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
+    
+    const nameInput = document.querySelector('input[name="name"]');
+    const surnameInput = document.querySelector('input[name="surname"]');
+
+
+    console.log("mira arribo");
+
+    if(nameInput.value.length >= 3 && nameInput.value.length <= 50){
+      console.log("admes");
+    }
+
+    if(surnameInput.value.length >= 3 && surnameInput.value.length <= 50){
+      console.log("admes");
+    }
+
+    
+
+
+
+  });
+
 // Selecció dels inputs...
-const nameInput = document.querySelector('input[name="name"]');
+
+
 
 // Si no saps com utilitzar aquestes funcions, pots fer ús de missatges per consol o situar
 // els errors allà on consideris lògic
