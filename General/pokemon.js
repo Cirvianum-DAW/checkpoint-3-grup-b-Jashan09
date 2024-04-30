@@ -60,6 +60,7 @@ const perCercar = function()
 
         //REPTE 3 INACABAT. NO MANEJO ELS ERRORS
         //REPTE 4 NO FET.
+        
       
 
         return myPokemonObj;
