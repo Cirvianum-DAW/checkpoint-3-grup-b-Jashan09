@@ -18,6 +18,53 @@ async function getDescAbility(url) {
 let thisDescUrl = [];
 let counter = 0;
 
+
+
+function repteTercer(){
+
+
+    let divSuperior = document.querySelector("body");
+
+    let nouInput = document.createElement("input");
+    let nouButton = document.createElement("button");
+    let nouDiv = document.createElement("div");
+
+    nouButton.textContent = "Fes-me click per cercar per id o per nom";
+    nouDiv.style = "border: 1px solid #000;";
+
+    nouInput.style = "border: 1px solid #000;";
+
+    nouDiv.appendChild(nouInput);
+    nouDiv.appendChild(nouButton);
+    divSuperior.appendChild(nouDiv);
+
+}
+
+const perCercar = function()
+{
+
+    let nouInput = document.querySelector("input");
+
+    document
+    .querySelector('button')
+    .addEventListener('click', async function (event) {
+    
+        let id = nouInput.value;
+
+        console.log(id);
+    
+        const myPokemonObj = await request(id);
+
+        console.log(myPokemonObj);
+
+        escriuElPoke(myPokemonObj); 
+
+        return myPokemonObj;
+
+      
+    });
+}
+
 function escriuElPoke(myPokemonObj){
 
     thisDescUrl = [];
@@ -36,12 +83,9 @@ function escriuElPoke(myPokemonObj){
 
     mySprite.src = myPokemonObj.sprites.front_shiny
 
-    let textAbilities = "";
-
     let myAbilitiesArray = document.querySelector("ul"); //ES UNA LLISTA 
 
-
-    myPokemonObj.abilities.forEach(ability => {
+    myPokemonObj.abilities.forEach(async ability => {
         let newLi = document.createElement("li");
 
         let nouH4 = document.createElement("h4");
@@ -49,9 +93,19 @@ function escriuElPoke(myPokemonObj){
         
         nouH4.textContent = ability.ability.name;
 
-        thisDescUrl =  ability.ability.url;
-        
+        nouH4.style = "font-weight: bold;";
 
+        thisDescUrl =  ability.ability.url;
+
+        let desc = await getDescAbility(thisDescUrl);
+
+        desc.effect_entries.forEach(element => {
+            console.log(element);
+            if(element.language.name == "en"){
+                nouP.textContent = element.effect;
+            }
+        });
+        
         newLi.appendChild(nouH4);
         newLi.appendChild(nouP);
         myAbilitiesArray.appendChild(newLi);
@@ -66,8 +120,13 @@ main = async () => {
 
     const myPokemonObj = await ficaUnIdPelPokemon(3);
     console.log(myPokemonObj);  
+    escriuElPoke(myPokemonObj); 
+    
+    repteTercer();
 
-    escriuElPoke(myPokemonObj);   
+    perCercar();
+
+    
 
 
 };
