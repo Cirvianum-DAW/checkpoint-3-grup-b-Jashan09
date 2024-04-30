@@ -11,7 +11,6 @@ const products = [
   { category: "Llar", price: 199.99, name: "Aspiradora" },
 ];
 
-
 const productInput = document.querySelector('select[name="product"]');
 
 const quantityInput = document.querySelector('input[name="quantity"]');
@@ -25,11 +24,7 @@ products.forEach(p => {
   productInput.appendChild(meuOption);
 });
 
-
-
 productInput.addEventListener("change", (event) => {
-
-  console.log("holis");
 
   quantityInput.value = 1;
   let preuUnitari;
@@ -42,5 +37,27 @@ productInput.addEventListener("change", (event) => {
 
   priceInput.value = preuUnitari;
 
-  //result.textContent = `You like ${event.target.value}`;
+});
+
+
+let myUl = document.createElement("ul");
+
+let thisForm = document.querySelector("form");
+thisForm.appendChild(myUl);
+
+document
+  .querySelector('button')
+  .addEventListener('click', function (event) {
+
+    let newLi = document.createElement("li");
+
+    let totalPreu = priceInput.value * quantityInput.value;
+
+    let fraseFinal = `${productInput.value} | 
+    quantitat:${quantityInput.value} | Total: ${totalPreu}`;
+
+    newLi.textContent = fraseFinal;
+
+    myUl.appendChild(newLi);
+
 });
