@@ -14,6 +14,10 @@ const products = [
 
 const productInput = document.querySelector('select[name="product"]');
 
+const quantityInput = document.querySelector('input[name="quantity"]');
+
+const priceInput = document.querySelector('input[name="price"]');
+
 products.forEach(p => {
   let meuOption = document.createElement("option");
   meuOption.value= p.name;
@@ -21,3 +25,22 @@ products.forEach(p => {
   productInput.appendChild(meuOption);
 });
 
+
+
+productInput.addEventListener("change", (event) => {
+
+  console.log("holis");
+
+  quantityInput.value = 1;
+  let preuUnitari;
+
+  products.forEach(productInfo => {
+    if(event.target.value == productInfo.name){
+      preuUnitari = productInfo.price;
+    }
+  });
+
+  priceInput.value = preuUnitari;
+
+  //result.textContent = `You like ${event.target.value}`;
+});

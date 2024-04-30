@@ -12,7 +12,7 @@ document
     const genderInput = document.querySelector('select[name="gender"]');
     const messageInput = document.querySelector('textarea[name="message"]');
 
-    const productInput = document.querySelector('select[name="product"]');
+    const quantityInput = document.querySelector('input[name="quantity"]');
 
 
     if(nameInput.value.length >= 3 && nameInput.value.length <= 50){
@@ -53,7 +53,10 @@ document
       displayError(genderInput, "I el teu génere?")
     }
 
-    if(productInput.)
+    if(quantityInput.value >= 1 && quantityInput.value <= 10 ){
+    }else{
+      alert("La quantitat ha de ser un nombre enter entre 1 i 10.");
+    }
 
 
   });
