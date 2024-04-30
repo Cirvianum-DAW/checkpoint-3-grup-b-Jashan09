@@ -83,7 +83,13 @@ function escriuElPoke(myPokemonObj){
 
     mySprite.src = myPokemonObj.sprites.front_shiny
 
-    let myAbilitiesArray = document.querySelector("ul"); //ES UNA LLISTA 
+    let myAbilitiesArray = document.querySelector("ul"); //ES UNA LLISTA
+    
+    //TRET D'INTERNET
+    var lis = document.querySelectorAll('li');
+    for(var i=0; li=lis[i]; i++) {
+        li.parentNode.removeChild(li);
+    }
 
     myPokemonObj.abilities.forEach(async ability => {
         let newLi = document.createElement("li");
@@ -113,7 +119,6 @@ function escriuElPoke(myPokemonObj){
     });
 
 }
-
 
 
 main = async () => {
