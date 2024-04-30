@@ -61,3 +61,5 @@ document
     myUl.appendChild(newLi);
 
 });
+
+//HE FET SERVIR D'ESDEVENIMENTS -> SUBMIT, CLICK i CHANGE

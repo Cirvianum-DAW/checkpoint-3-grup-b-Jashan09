@@ -25,6 +25,7 @@ function repteTercer(){
     let nouDiv = document.createElement("div");
 
     nouButton.textContent = "Fes-me click per cercar per id o per nom (després d'escriure al input)";
+
     nouDiv.style = "border: 1px solid #000;";
 
     nouInput.style = "border: 1px solid #000;";
@@ -49,21 +50,21 @@ const perCercar = function()
     
         const myPokemonObj = await request(id);
 
+
+      
+
         console.log(myPokemonObj);
 
         escriuElPoke(myPokemonObj); 
 
-        let testError = myPokemonObj;
+
+        //REPTE 3 INACABAT. NO MANEJO ELS ERRORS
+        //REPTE 4 NO FET.
+      
 
         return myPokemonObj;
 
-        
-      
-
-    
     });
-        
-  
     
 }
 
@@ -78,7 +79,7 @@ function escriuElPoke(myPokemonObj){
     myName.textContent = myPokemonObj.name;
 
     myHeight.textContent = "Height: " + myPokemonObj.height;
-    myWeight.textContent = "Weight: " + myPokemonObj.weight;
+    myWeight.textContent = "Weight: " + myPokemonObj.weight+"kg";
 
     mySprite.src = myPokemonObj.sprites.front_shiny
 
